@@ -1,0 +1,33 @@
+<div>
+    <app-header></app-header>
+    <hr>
+    <div class="container">
+        <form (ngSubmit)="onSubmit()" class="d-flex flex-column w-50">
+            <div class="input-group mb-3">
+                <input class="form-control" placeholder="First name" type="text" [(ngModel)]="fname" name="fname"
+                    aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <input class="form-control" placeholder="Last Name" type="text" [(ngModel)]="lname" name="lname"
+                    aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <input class="form-control" placeholder="Phone" type="text" [(ngModel)]="phone" name="phone"
+                    aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <select class="form-control" [(ngModel)]="sex" name="sex">
+                    <option *ngFor="let sex of sexSelect" [value]="sex.value" [attr.selected]="true">
+                        {{sex.value}}
+                    </option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <input class="form-control" placeholder="Age" type="text" [(ngModel)]="age" name="age"
+                    aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <button type="submit" class="btn btn-info"
+                [disabled]="!fname || !lname || !phone || !sex || !age">Submit</button>
+        </form>
+    </div>
+</div>
